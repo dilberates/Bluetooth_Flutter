@@ -124,7 +124,7 @@ class ServiceTile extends StatelessWidget {
   final List<CharacteristicTile> characteristicTiles;
 
   const ServiceTile(
-      {required Key key,
+      { Key? key,
         required this.service,
         required this.characteristicTiles})
       : super(key: key);
@@ -165,7 +165,7 @@ class CharacteristicTile extends StatelessWidget {
   final VoidCallback onNotificationPressed;
 
   const CharacteristicTile(
-      {required Key key,
+      {Key? key,
         required this.characteristic,
         required this.descriptorTiles,
         required this.onReadPressed,
@@ -235,7 +235,7 @@ class DescriptorTile extends StatelessWidget {
 
   const DescriptorTile(
       {
-        required Key key,
+       Key? key,
         required this.descriptor,
         required this.onReadPressed,
         required this.onWritePressed})

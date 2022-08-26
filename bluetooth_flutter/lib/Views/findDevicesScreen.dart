@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:bluetooth_flutter/Const/Colors.dart';
 import 'package:bluetooth_flutter/Const/languageItems.dart';
 import 'package:bluetooth_flutter/Widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +26,7 @@ class FindDevicesScreen extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButton: _FloatingButton(),
     );
   }
 }
@@ -92,5 +94,34 @@ class _ScanResults extends StatelessWidget {
     );
   }
 }
+class _FloatingButton extends StatelessWidget {
+  const _FloatingButton({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<bool>(
+      stream: FlutterBlue.instance.isScanning,
+      initialData: false,
+      builder: (context,snapshot) {
+        if(snapshot.data!){
+          return FloatingActionButton(
+              child: Icon(
+                Icons.stop_circle_rounded,
+                color: MyColors.red,
+              ),
+              onPressed:() => FlutterBlue.instance.stopScan());
+        }else{
+          return FloatingActionButton(
+              child: Icon(
+                Icons.search_rounded,
+                color:MyColors.green,
+              ),
+              onPressed:() => FlutterBlue.instance.startScan(timeout: Duration(seconds: 4)));
+        }
+      },
+    );
+  }
+}
+
 
 

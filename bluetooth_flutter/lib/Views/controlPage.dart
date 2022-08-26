@@ -1,5 +1,4 @@
 import 'package:bluetooth_flutter/Views/bluetoothOffScreen.dart';
-import 'package:bluetooth_flutter/Views/errorPage.dart';
 import 'package:bluetooth_flutter/Views/findDevicesScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
@@ -16,10 +15,7 @@ class ControlPage extends StatelessWidget {
           final state=snapshot.data;
           if(state==BluetoothState.on)
             return FindDevicesScreen();
-          else if(state==BluetoothState.off)
           return BluetoothOffScreen(state:state);
-          else
-          return ErrorPage();
         }
     );
   }
