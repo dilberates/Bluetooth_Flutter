@@ -64,7 +64,9 @@ class DevicesScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(devices!.name),
         actions: [
-          _AppBarButton(devices:devices),
+          Container(
+            margin: const EdgeInsets.all(10.0),
+              child: _AppBarButton(devices:devices)),
         ],
       ),
       body: SingleChildScrollView(
@@ -179,7 +181,7 @@ class _Edit extends StatelessWidget {
         subtitle: Text('${snapshot.data} bytes'),
         trailing: IconButton(
           icon: const Icon(Icons.edit,
-            color: MyColors.black,),
+            color: MyColors.red,),
           onPressed:() => devices!.requestMtu(223),
         ),
       ),

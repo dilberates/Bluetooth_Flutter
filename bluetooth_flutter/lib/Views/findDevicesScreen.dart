@@ -19,11 +19,13 @@ class FindDevicesScreen extends StatelessWidget {
       body: RefreshIndicator(
         onRefresh: () =>
         FlutterBlue.instance.startScan(timeout: Duration(seconds: 4)),
-        child: Column(
-          children: [
-            _ConnectButton(),
-            _ScanResults(),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: const [
+              _ConnectButton(),
+              _ScanResults(),
+            ],
+          ),
         ),
       ),
       floatingActionButton: _FloatingButton(),
@@ -37,34 +39,34 @@ class _ConnectButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<List<BluetoothDevice>>(
-      stream: Stream.periodic(Duration(seconds: 2))
-          .asyncMap((_) => FlutterBlue.instance.connectedDevices),
-      initialData: [],
-      builder: (context, snapshot) => Column(
-        children: snapshot.data!
-            .map((d) => ListTile(
-          title: Text(d.name),
-          subtitle: Text(d.id.toString()),
-          trailing: StreamBuilder<BluetoothDeviceState>(
-            stream: d.state,
-            initialData: BluetoothDeviceState.disconnected,
-            builder: (c, snapshot) {
-              if (snapshot.data ==
-                  BluetoothDeviceState.connected) {
-                return ElevatedButton(
-                  child: Text(LanguageItem.openTitle),
-                  onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              DevicesScreen(devices: d))),
-                );
-              }
-              return Text(snapshot.data.toString());
-            },
-          ),
-        ))
-            .toList(),
-      ),
+        stream: Stream.periodic(Duration(seconds: 2))
+            .asyncMap((_) => FlutterBlue.instance.connectedDevices),
+        initialData: [],
+        builder: (context, snapshot) => Column(
+          children: snapshot.data!
+              .map((d) => ListTile(
+            title: Text(d.name),
+            subtitle: Text(d.id.toString()),
+            trailing: StreamBuilder<BluetoothDeviceState>(
+              stream: d.state,
+              initialData: BluetoothDeviceState.disconnected,
+              builder: (c, snapshot) {
+                if (snapshot.data ==
+                    BluetoothDeviceState.connecting) {
+                  return ElevatedButton(
+                    child: Text(LanguageItem.openTitle),
+                    onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                DevicesScreen(devices: d))),
+                  );
+                }
+                return Text(snapshot.data.toString());
+              },
+            ),
+          ))
+              .toList(),
+        ),
     );
   }
 }
@@ -105,14 +107,14 @@ class _FloatingButton extends StatelessWidget {
       builder: (context,snapshot) {
         if(snapshot.data!){
           return FloatingActionButton(
-              child: Icon(
-                Icons.stop_circle_rounded,
+              child: const Icon(
+                Icons.stop,
                 color: MyColors.red,
               ),
               onPressed:() => FlutterBlue.instance.stopScan());
         }else{
           return FloatingActionButton(
-              child: Icon(
+              child: const Icon(
                 Icons.search_rounded,
                 color:MyColors.green,
               ),
