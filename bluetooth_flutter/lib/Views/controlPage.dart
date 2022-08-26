@@ -14,7 +14,7 @@ class ControlPage extends StatelessWidget {
         builder: (context,snapshot) {
           final state=snapshot.data;
           if(state==BluetoothState.on)
-            return FindDevicesScreen();
+            return const FindDevicesScreen();
           return BluetoothOffScreen(state:state);
         }
     );

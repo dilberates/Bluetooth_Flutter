@@ -7,4 +7,5 @@ class MyColors {
  static const Color white=Colors.white60;
  static const Color black=Colors.black;
  static const Color grey=Colors.black45;
+ static const Color buttonColor=Colors.indigo;
 }
