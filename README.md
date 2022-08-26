@@ -1,2 +1,3 @@
 # Bluetooth_Flutter
-Flutter blue plus project.
+Flutter blue package use in project.
+
