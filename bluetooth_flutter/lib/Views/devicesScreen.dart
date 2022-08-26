@@ -114,7 +114,7 @@ class _AppBarButton extends StatelessWidget {
               text=LanguageItem.connectTitle;
               break;
             default:
-              onPressed=() => null;
+              onPressed=() => print('bağlanılamadı');
               text=snapshot.data.toString().substring(21).toUpperCase();
           }
           return ElevatedButton(

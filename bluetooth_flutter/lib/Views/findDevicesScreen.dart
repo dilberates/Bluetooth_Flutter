@@ -61,7 +61,12 @@ class _ConnectButton extends StatelessWidget {
                                 DevicesScreen(devices: d))),
                   );
                 }
-                return Text(snapshot.data.toString());
+                return ElevatedButton(
+                    onPressed : () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            DevicesScreen(devices: d))),
+                    child: Text(LanguageItem.openTitle));
               },
             ),
           ))
