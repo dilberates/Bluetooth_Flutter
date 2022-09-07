@@ -22,7 +22,7 @@ class FindDevicesScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: const [
-              _ConnectButton(),
+              _DevicesDetail(),
               _ScanResults(),
             ],
           ),
@@ -33,8 +33,8 @@ class FindDevicesScreen extends StatelessWidget {
   }
 }
 
-class _ConnectButton extends StatelessWidget {
-  const _ConnectButton({Key? key}) : super(key: key);
+class _DevicesDetail extends StatelessWidget {
+  const _DevicesDetail({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
