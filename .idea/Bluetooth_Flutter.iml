@@ -11,6 +11,15 @@
       <excludeFolder url="file://$MODULE_DIR$/bluetooth_flutter/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/bluetooth_flutter/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/bluetooth_flutter/build" />
+      <excludeFolder url="file://$MODULE_DIR$/bluetooth_flutter/ios/.symlinks/plugins/flutter_blue/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/bluetooth_flutter/ios/.symlinks/plugins/flutter_blue/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/bluetooth_flutter/ios/.symlinks/plugins/flutter_blue/build" />
+      <excludeFolder url="file://$MODULE_DIR$/FlutterNewsFeedApp/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/FlutterNewsFeedApp/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/FlutterNewsFeedApp/build" />
+      <excludeFolder url="file://$MODULE_DIR$/bluetooth_flutter/ios/.symlinks/plugins/flutter_blue/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/bluetooth_flutter/ios/.symlinks/plugins/flutter_blue/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/bluetooth_flutter/ios/.symlinks/plugins/flutter_blue/example/.dart_tool" />
     </content>
     <orderEntry type="jdk" jdkName="Android API 33, extension level 3 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
