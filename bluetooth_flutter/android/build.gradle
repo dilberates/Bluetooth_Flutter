@@ -26,6 +26,22 @@ subprojects {
     project.evaluationDependsOn(':app')
 }
 
-task clean(type: Delete) {
+tasks.register("clean", Delete) {
     delete rootProject.buildDir
+}
+
+import org.apache.tools.ant.taskdefs.condition.Os
+
+// Compatible with macOS on Apple Silicon
+def archSuffix = Os.isFamily(Os.FAMILY_MAC) ? ':osx-x86_64' : ''
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.20.1$archSuffix"
+    }
+    plugins {
+        javalite {
+            artifact = "com.google.protobuf:protoc-gen-javalite:3.0.0$archSuffix"
+        }
+    }
 }
